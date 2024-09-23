@@ -1,0 +1,35 @@
+header
+     nav.navbar
+      div.container-fluid
+       a.navbar-brand.text-white
+        h1 MUSEUM CJF
+       form(action="/", method="post")
+        div.row
+          div.col.me-2.mb-2
+            div.input-group.has-validation
+              span.input-group-text
+                i.fa-solid.fa-key
+              input.form-control(type="text",name="palabraClave",placeholder="Palabra clave")
+              div      
+          div.col.me-2.mb-2
+            div.input-group.has-validation
+              span.input-group-text
+                i.fa-solid.fa-location-crosshairs
+              select.form-select(name="departamento")
+                  option(value="") Seleccione departamento 
+                  each d in departamentos
+                   option(value=d.departmentId)= d.displayName
+              div
+          div.col.me-2.mb-2
+            div.input-group.has-validation
+              span.input-group-text
+                i.fa-solid.fa-building
+              select.form-select(name="ubicacion")
+                  option(value="") Seleccione ubicación 
+                  each u in ubicaciones
+                   option(value=u)= u
+              div
+          div.col-1.mb-2
+            button.btn.btn-outline-success.w-100(type="submit")
+              i.fa-solid.fa-magnifying-glass
+        div.invalid-feedback validar

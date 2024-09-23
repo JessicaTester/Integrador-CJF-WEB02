@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title Met Museum Gallery
+    style 
+      include ../assets/css/bootstrap.min.css
+      include ../assets/css/myCss.css
+    script    
+      include ../assets/js/fontawesome.min.js
+      include ../assets/js/solid.min.js 
+      include ../assets/js/brands.min.js  
+      include ../assets/js/bootstrap.min.js  
+
+  body
+  include header.pug
+  main
+    section.carru.p-3
+        div.card.mb-3
+            div.row.g-0
+                div.col-md-8
+                    if imagenesAdicionales && imagenesAdicionales.length > 0
+                        div.carousel.slide(id="carouselExample",data-bs-ride="carousel")
+                            div.carousel-inner
+                                each image, i in imagenesAdicionales
+                                    div.carousel-item(class=i == 0 ? 'active' : '')
+                                        img.d-block.w-100.custom-img(src=image, alt=`Imagen ${objeto.title}`,title=`Creado en: ${objeto.metadataDate}`)
+                            button.carousel-control-prev(type="button", data-bs-target="#carouselExample", data-bs-slide="prev")
+                                span.carousel-control-prev-icon(aria-hidden="true")
+                                span.visually-hidden Previous
+                            button.carousel-control-next(type="button", data-bs-target="#carouselExample", data-bs-slide="next")
+                                span.carousel-control-next-icon(aria-hidden="true")
+                                span.visually-hidden Next
+                    else
+                        div.carousel.slide(id="carouselExample",data-bs-ride="carousel")
+                            div.carousel-inner
+                                 div.carousel-item(class='active')
+                                    img.d-block.w-100.custom-img(src=objeto.primaryImage, alt="Imagen principal")                                               
+                div.col-md-4
+                    div.card-body
+                        h5.card-title Titulo de la imagen
+                        p.card-text #{objeto.title}
+                        p.card-text
+                            small.class.text-muted Ultima actualizacion hace 3 minutos
+                    ul.list-group.list-group-flush
+                        li.list-group-item Departamento: #{objeto.department || 'Sin departamento'}
+                        li.list-group-item Cultura: #{objeto.culture || 'Sin cultura'}
+                        li.list-group-item Dinastía: #{objeto.dynasty || 'Sin dinastía'}
+                        li.list-group-item Periodo: #{objeto.period || 'Sin periodo'}
+                        li.list-group-item Artista: #{objeto.artist || 'Sin artista'}
+                    div.card-body
+                        a.card-link(href="/") Volver
+
+  include footer.pug
