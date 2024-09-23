@@ -8,7 +8,7 @@ const limite = 20;
 const departamentosAPI = 'https://collectionapi.metmuseum.org/public/collection/v1/departments';
 const ubicaciones = ["Europe", "France", "Paris", "China", "New York", "Japan"];
 //imagen por defecto
-const sinImg = '/assets/sinIMG.png';
+//const sinImg = __dirname + '/assets/sinIMG.png';
 
 //parametros de PUG busnca la carpeta views
 app.set('view engine', 'pug');
@@ -76,7 +76,7 @@ app.get('/', async (req, res) => {
                             ...obj,
                             dynasty: obj.dynasty ? obj.dynasty : 'Sin dinastía',
                             culture: obj.culture ? obj.culture : 'Sin cultura',
-                            primaryImageSmall: obj.primaryImageSmall ? obj.primaryImageSmall : sinImg
+                            //primaryImageSmall: obj.primaryImageSmall ? obj.primaryImageSmall : sinImg
                         };
                     })
             );
