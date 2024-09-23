@@ -12,7 +12,7 @@ const sinImg = '/assets/sinIMG.png';
 
 //parametros de PUG busnca la carpeta views
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join("public", 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
