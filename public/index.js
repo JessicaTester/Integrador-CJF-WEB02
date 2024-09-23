@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const path = require('path');
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const limite = 20;
 
 const departamentosAPI = 'https://collectionapi.metmuseum.org/public/collection/v1/departments';
