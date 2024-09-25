@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title MUSEOCJF!
+    style 
+      include ../assets/css/bootstrap.min.css
+      include ../assets/css/myCss.css
+    script    
+      include ../assets/js/fontawesome.min.js
+      include ../assets/js/solid.min.js 
+      include ../assets/js/brands.min.js  
+ 
+  body
+  include header.pug
+  main
+    section.carru.p-3
+        div.container.scrollable-div
+          if(alertaNom==="filtro")   
+            div.alert.alert-warning(role="alert")                              
+              h4.alert-heading No se encontraron datos!
+              p Al parecer no se encontraron datos con los siguientes filtros:
+              hr
+              p.mb-0 Palabra clave: #{palabraClave}.
+              p.mb-0 Departamento: #{departamento}.
+              p.mb-0 Localizacion: #{ubicacion}.
+          if(alertaNom==="otro")
+            div.alert.alert-primary(role="alert")                              
+              h4.alert-heading No se encontraron datos!
+              p Al parecer no se encontraron datos con los siguientes filtros:
+              hr
+              p.mb-0 Palabra clave: #{palabraClave}.
+              p.mb-0 Departamento: #{departamento}.
+              p.mb-0 Localizacion: #{ubicacion}.
+                       
+  include footer.pug

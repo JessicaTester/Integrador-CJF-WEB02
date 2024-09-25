@@ -1,9 +1,9 @@
 header
      nav.navbar
       div.container-fluid
-       a.navbar-brand.text-white
+       a.navbar-brand.text-white(href="/") 
         h1 MUSEUM CJF
-       form(action="/", method="post")
+       form#formFiltro(action="/", method="post" novalidate)
         div.row
           div.col.me-2.mb-2
             div.input-group.has-validation
@@ -15,7 +15,7 @@ header
             div.input-group.has-validation
               span.input-group-text
                 i.fa-solid.fa-location-crosshairs
-              select.form-select(name="departamento")
+              select.form-select(name="departamento" required)
                   option(value="") Seleccione departamento 
                   each d in departamentos
                    option(value=d.departmentId)= d.displayName
@@ -32,4 +32,4 @@ header
           div.col-1.mb-2
             button.btn.btn-outline-success.w-100(type="submit")
               i.fa-solid.fa-magnifying-glass
-        div.invalid-feedback validar
+          div#alertaFiltro.alert.alert-warning(style="display: none;" role="alert") Debe ingresar al menos un filtro.            

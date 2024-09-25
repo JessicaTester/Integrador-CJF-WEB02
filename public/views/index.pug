@@ -1,34 +1,44 @@
 doctype html
 html
   head
-    title Met Museum Gallery
+    title MUSEOCJF!
     style 
       include ../assets/css/bootstrap.min.css
       include ../assets/css/myCss.css
     script    
       include ../assets/js/fontawesome.min.js
       include ../assets/js/solid.min.js 
-      include ../assets/js/brands.min.js  
+      include ../assets/js/brands.min.js
+      include ../assets/js/myJs.js
  
   body
   include header.pug
   main
     section.carru.p-3
       div.container.scrollable-div
-        div.row.row-cols-4
-          each o in objetos
-            div.col
-              div.card.me-2.mb-2
-                img.card-img-top(src=o.primaryImageSmall, alt="...", title=`Creado en: ${o.metadataDate}`)
-                span.border.border-primary-subtle
-                div.card-body
-                  h5.card-title Titulo
-                  p.card-text=o.title
-                ul.list-group.list-group-flush
-                 li.list-group-item Cultura: #{o.culture}
-                 li.list-group-item Dinastía: #{o.dynasty}
-                div.card-body
-                  a.card-link(href=`/verDetalle/${o.objectID}`) Ir a detalle...
+        if objetos.length > 0
+          div.row.row-cols-4
+            each o in objetos
+              div.col
+                div.card.me-2.mb-2
+                  img.card-img-top(src=o.primaryImageSmall, alt=o.title, title=`Creado en: ${o.metadataDate}`)
+                  span.border.border-primary-subtle
+                  div.card-body
+                    h5.card-title Titulo
+                    p.card-text=o.tituloEsp
+                  ul.list-group.list-group-flush
+                    li.list-group-item Cultura: #{o.culturaEsp}
+                    li.list-group-item Dinastía: #{o.dinastiaEsp}
+                  div.card-body
+                    a.card-link(href=`/verDetalle/${o.objectID}`) Ir a detalle...
+        else
+          div.alert.alert-primary(role="alert")
+            h4.alert-heading No se encontraron datos!
+            p Al parecer no se encontraron datos con los siguientes filtros:
+            hr
+            p.mb-0 Palabra clave: #{palabraClave}.
+            p.mb-0 Departamento: #{departamento}.
+            p.mb-0 Localizacion: #{ubicacion}.
       div         
         nav.paginador(aria-label="Page navigation")
         ul.pagination.justify-content-center

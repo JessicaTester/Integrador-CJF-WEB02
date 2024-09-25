@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title Met Museum Gallery
+    title MUSEOCJF!
     style 
       include ../assets/css/bootstrap.min.css
       include ../assets/css/myCss.css
@@ -38,13 +38,13 @@ html
                 div.col-md-4
                     div.card-body
                         h5.card-title Titulo de la imagen
-                        p.card-text #{objeto.title}
+                        p.card-text #{objeto.tituloEsp}
                         p.card-text
-                            small.class.text-muted Ultima actualizacion hace 3 minutos
+                            small.class.text-muted Ultima actualizacion: #{objeto.metadataDate}
                     ul.list-group.list-group-flush
                         li.list-group-item Departamento: #{objeto.department || 'Sin departamento'}
-                        li.list-group-item Cultura: #{objeto.culture || 'Sin cultura'}
-                        li.list-group-item Dinastía: #{objeto.dynasty || 'Sin dinastía'}
+                        li.list-group-item Cultura: #{objeto.culturaEsp || 'Sin cultura'}
+                        li.list-group-item Dinastía: #{objeto.dinastiaEsp || 'Sin dinastía'}
                         li.list-group-item Periodo: #{objeto.period || 'Sin periodo'}
                         li.list-group-item Artista: #{objeto.artist || 'Sin artista'}
                     div.card-body
