@@ -27,6 +27,12 @@
   object-fit: cover;
 }
 
+.img-404 {
+  width: 50%;
+  height: auto;
+  max-height: 540px;
+  object-fit: fill;
+}
 
 .row>* {
   margin: 0;
@@ -155,18 +161,12 @@ button[type="submit"]:hover {
   border-radius: 10px;
 }
 
-/* Para navegadores basados en Firefox */
 .scrollable-div {
   width: 100%;
-  /* Define el ancho del div */
   height: 588px;
-  /* Define la altura del div */
   overflow: auto;
-  /* Permite el scroll vertical y horizontal si es necesario */
   scrollbar-width: thin;
-  /* Hace la barra de desplazamiento más delgada */
   scrollbar-color: #D81B60 #ffffff;
-  /* Color del "thumb" y del fondo */
 }
 
 

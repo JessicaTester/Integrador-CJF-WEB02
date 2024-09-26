@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title MUSEOCJF!
+    style 
+      include ../assets/css/bootstrap.min.css
+      include ../assets/css/myCss.css
+    script    
+      include ../assets/js/fontawesome.min.js
+      include ../assets/js/solid.min.js 
+      include ../assets/js/brands.min.js  
+ 
+  body
+  include header.pug
+  main
+    section.carru.p-3
+        div.container
+            div.alert.alert-danger(role="alert")
+              div.d-flex.justify-content-center
+                img.img-404(src="/assets/404.jpg", alt=`Imagen404`,title=`404RPG`)
+              div.d-flex.justify-content-center                     
+                h4.alert-heading ERROR, no se encuentra esa ruta o direccion URL en la aplicacion.
+
+  include footer.pug

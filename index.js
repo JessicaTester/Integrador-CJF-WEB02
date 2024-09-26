@@ -45,6 +45,7 @@ app.get('/verDetalle/:id', async (req, res) => {
 
 });
 
+
 app.get('/', async (req, res) => {
 
     const pagina = req.query.pagina ? parseInt(req.query.pagina) : 1;
@@ -170,8 +171,6 @@ app.post('/', async (req, res) => {
     }
 });
 
-
-
 async function traducirEsp(objetos, idioma) {
     const textoPlano = objetos.map(item => `${item.title}\n${item.dynasty}\n${item.culture}`).join('\n');
     const traducionTextoPlano = await translate({
@@ -189,6 +188,16 @@ async function traducirEsp(objetos, idioma) {
     });
     return objetos;
 }
+
+app.use(async (req, res, next) => {
+    try {
+        const datos = await axios.get(departamentosAPI);
+        const departamentos = datos.data.departments;
+        res.status(404).render('404', { departamentos, ubicaciones });
+    } catch (error) {
+        next(error);
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`servidor funcionando en http://localhost:${PORT}}`);
